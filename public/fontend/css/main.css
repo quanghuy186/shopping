@@ -1,0 +1,11 @@
+.header-nav-right li {
+    padding: 0 10px;
+}
+
+li {
+    list-style: none;
+}
+
+.btn-add-to-cart a:hover {
+    background-color: orange;
+}
