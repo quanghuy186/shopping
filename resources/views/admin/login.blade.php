@@ -9,9 +9,10 @@
                 <form action="{{ route('auth.login') }}" method="post">
                     @csrf
                     <div class="input-group mb-3"> 
-                        <input type="text" name="username" class="form-control" placeholder="Username">
+                        <input type="text" name="name" class="form-control" placeholder="Username">
                         <div class="input-group-text"> <span class="bi bi-envelope"></span> </div>
                     </div>
+
                     <div class="input-group mb-3"> 
                         <input type="password" name="password" class="form-control" placeholder="Mật khẩu">
                         <div class="input-group-text"> <span class="bi bi-lock-fill"></span> </div>
@@ -34,7 +35,7 @@
                     </a>
                 </div> <!-- /.social-auth-links -->
                 <p class="mb-1"> <a href="forgot-password.html">Tôi quên mật khẩu</a> </p>
-                <p class="mb-0"> <a href="register.html" class="text-center">
+                <p class="mb-0"> <a href="{{ url('register') }}" class="text-center">
                         Đăng ký thành viên mới
                     </a> </p>
             </div> <!-- /.login-card-body -->

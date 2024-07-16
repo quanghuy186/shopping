@@ -36,9 +36,15 @@ class IndexController extends Controller
     }
     
     public function auth(Request $request){
-        echo $request->email;
-        if(Auth::user() == $request->username){
-           
+        $credentials = $request->validate([
+            'name' => ['required'],
+            'password' => ['required'],
+        ]);
+ 
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            echo Auth::user()->id;            
+            return view('page.home');
         }
     }
 }
