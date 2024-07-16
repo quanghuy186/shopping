@@ -82,7 +82,7 @@
 								  </li>
 
 								  <li class="nav-item">
-									<a href="{{ url('/register') }}" class="nav-link "><i class="fa fa-key"></i> Register</a>
+									<a href="{{ route('logout') }}" class="nav-link "><i class="fa fa-key"></i> Logout</a>
 								  </li>
 
 								</ul>
