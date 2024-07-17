@@ -21,9 +21,9 @@
 		<link rel="stylesheet" href="{{ asset('fontend/font/fontawesome-free-6.5.2/css/all.css') }}">
 	</head>
 
-	<body>
+	<body class="body">
 		<header>
-			<div class="container">
+			<div class="container header">
 				<div class="row mt-3 border-bottom">
 					{{-- nav logo --}}
 					<div class="col-sm-6 d-flex align-items-center">
@@ -77,13 +77,20 @@
 									<a class="nav-link " href="#"> <i class="fa fa-shopping-cart"></i> Cart</a>
 								  </li>
 
-								  <li class="nav-item">
-									<a href="{{ url('/login') }}" class="nav-link "><i class="fa fa-lock"></i> Login</a>
-								  </li>
+								  @if (Auth::id() > 0)
+									<li class="nav-item">
+										<a href="{{ url('/login') }}" class="nav-link "><i class="fa-solid fa-user"></i> {{ Auth::user()->name }}</a>
+									</li>
 
-								  <li class="nav-item">
-									<a href="{{ route('logout') }}" class="nav-link "><i class="fa fa-key"></i> Logout</a>
-								  </li>
+									<li class="nav-item">
+										<a href="{{ route('logout') }}" class="nav-link "><i class="fa-solid fa-right-to-bracket"></i> Logout</a>
+									  </li>
+								  @else
+
+									<li class="nav-item">
+										<a href="{{ url('/login') }}" class="nav-link "><i class="fa fa-lock"></i> Login</a>
+									</li>
+								  @endif
 
 								</ul>
 							</div>
@@ -92,7 +99,7 @@
 				</div>
 			</div>
 
-			<div class="container">
+			<div class="container nav-search">
 				<div class="row">
 					<nav class="navbar navbar-expand-lg mt-3">
 						<div class="container-fluid">
@@ -139,78 +146,80 @@
 
 		{{-- footer --}}
 
-		<footer  class="bg-secondary mt-5 text-white">
-			<div class="footer-widget">
+		<footer class="bg-secondary text-white mt-5">
+			<div class="footer-widget py-5">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-2">
 							<div class="single-widget">
-								<h2>Service</h2>
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#">Online Help</a></li>
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Order Status</a></li>
-									<li><a href="#">Change Location</a></li>
-									<li><a href="#">FAQ’s</a></li>
+								<h5>Service</h5>
+								<ul class="nav flex-column">
+									<li class="nav-item"><a class="nav-link text-white" href="#">Online Help</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Contact Us</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Order Status</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Change Location</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">FAQ’s</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-sm-2">
 							<div class="single-widget">
-								<h2>Quock Shop</h2>
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#">T-Shirt</a></li>
-									<li><a href="#">Mens</a></li>
-									<li><a href="#">Womens</a></li>
-									<li><a href="#">Gift Cards</a></li>
-									<li><a href="#">Shoes</a></li>
+								<h5>Quick Shop</h5>
+								<ul class="nav flex-column">
+									<li class="nav-item"><a class="nav-link text-white" href="#">T-Shirt</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Mens</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Womens</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Gift Cards</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Shoes</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-sm-2">
 							<div class="single-widget">
-								<h2>Policies</h2>
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#">Terms of Use</a></li>
-									<li><a href="#">Privecy Policy</a></li>
-									<li><a href="#">Refund Policy</a></li>
-									<li><a href="#">Billing System</a></li>
-									<li><a href="#">Ticket System</a></li>
+								<h5>Policies</h5>
+								<ul class="nav flex-column">
+									<li class="nav-item"><a class="nav-link text-white" href="#">Terms of Use</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Privacy Policy</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Refund Policy</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Billing System</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Ticket System</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-sm-2">
 							<div class="single-widget">
-								<h2>About Shopper</h2>
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#">Company Information</a></li>
-									<li><a href="#">Careers</a></li>
-									<li><a href="#">Store Location</a></li>
-									<li><a href="#">Affillate Program</a></li>
-									<li><a href="#">Copyright</a></li>
+								<h5>About Shopper</h5>
+								<ul class="nav flex-column">
+									<li class="nav-item"><a class="nav-link text-white" href="#">Company Information</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Careers</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Store Location</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Affiliate Program</a></li>
+									<li class="nav-item"><a class="nav-link text-white" href="#">Copyright</a></li>
 								</ul>
 							</div>
 						</div>
-						<div class="col-sm-3 col-sm-offset-1">
+						<div class="col-sm-3 offset-sm-1">
 							<div class="single-widget">
-								<h2>About Shopper</h2>
-								<form action="#" class="searchform">
-									<input type="text" placeholder="Your email address">
-									<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-									<p>Get the most recent updates from <br>our site and be updated your self...</p>
+								<h5>Newsletter</h5>
+								<form action="#" class="d-flex">
+									<input type="email" class="form-control me-2" placeholder="Your email address">
+									<button type="submit" class="btn btn-light"><i class="fa fa-arrow-circle-o-right"></i></button>
 								</form>
+								<p class="mt-3">Get the most recent updates from our site and be updated yourself...</p>
 							</div>
 						</div>
-						
 					</div>
 				</div>
 			</div>
-			
-			<div class="footer-bottom">
+			<div class="footer-bottom py-3">
 				<div class="container">
 					<div class="row">
-						<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-						<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+						<div class="col text-start">
+							<p class="mb-0">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
+						</div>
+						<div class="col text-end">
+							<p class="mb-0">Designed by <a href="http://www.themeum.com" class="text-white" target="_blank">Themeum</a></p>
+						</div>
 					</div>
 				</div>
 			</div>
